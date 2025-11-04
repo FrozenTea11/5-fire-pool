@@ -4,7 +4,7 @@
 
 **Pitch:** [One compelling sentence]
 
-![Class Diagram](class-diagram.png](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/FireIceSlimeUML.jpg )
+![Class Diagram](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/FireIceSlimeUML.jpg)
 ![UI Mockup](mockup.png)
 
 ## Core Classes
