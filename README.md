@@ -16,5 +16,7 @@
 | `...` | ... |
 
 ## Group
-- Name (@github)
-- Name (@github)'
+- Lucas Wu (@FrozenTea11)
+- Max Elkin (@425676)
+- Liam Stoll ()
+- William Watabe ()
