@@ -6,7 +6,7 @@ class Attack {
 
 
   // Constructor
-  Attack(int x, int y, int w, int h, int speed, PImage l1) {
+  Attack(int x, int y, int w, int h, int speed, PImage p1) {
     this.x = x;
     this.y = y;
     this.w = w;
