@@ -18,5 +18,5 @@
 ## Group
 - Lucas Wu (@FrozenTea11)
 - Max Elkin (@425676)
-- Liam Stoll ()
-- William Watabe ()
+- Liam Stoll (BIKER-LIFE)
+- William Watabe (9641873)
