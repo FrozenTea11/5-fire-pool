@@ -4,7 +4,7 @@
 
 **Pitch:** [One compelling sentence]
 
-![Class Diagram(https://github.com/FrozenTea11/5-fire-pool/blob/main/images/SlimeUML.pdf)
+![Class Diagram](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/SlimeUML.pdf)
 
 ![UI Mockup](mockup.png)
 
