@@ -5,7 +5,7 @@ class Machine {
   boolean dmg;
 
   // Constructor
-  Machine(int x, int y, int w, int h, int speed, int health, PImage m1){  
+  Machine(int x, int y, int w, int h, int speed, int health, PImage m1) {  
   m1 = loadImage("machine1.png);
   this.x = x;
   this.y = y;
