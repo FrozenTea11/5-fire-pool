@@ -1,6 +1,6 @@
 class Machine {
   // Member Variables
-  int x,y,w,h
+  int x,y,w,h, health, speed;
   PImage l;
 
   // Constructor
@@ -13,5 +13,8 @@ class Machine {
   image(l1,x,y);
 }
   void attack() {
-
+  image(x,y);
+}
+  void move() {
+  int(x,y)
 }
