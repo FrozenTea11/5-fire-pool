@@ -1,11 +1,12 @@
 class Machine {
   // Member Variables
   int x,y,w,h, health, speed;
-  PImage l;
+  PImage m;
   boolean dmg;
 
   // Constructor
-  Machine(int x, int y, int w, int h, int speed, int health, PImage l1) {
+  Machine(int x, int y, int w, int h, int speed, int health, PImage m1) 
+  m1 = loadImage("
   this.x = x;
   this.y = y;
   this.w = w;
@@ -17,7 +18,10 @@ class Machine {
   // Member Methods
 
   void display() {
-  image(l1,x,y);
+  image(m1,x,y);
+  if (dmg == true) {
+    int(health -1);
+  }
 }
   void attack() {
   image(x,y);
