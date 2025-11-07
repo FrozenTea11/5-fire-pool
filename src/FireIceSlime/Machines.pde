@@ -17,7 +17,7 @@ class Machine {
   // Member Methods
 
   void display() {
-  image(m1,x,y);
+  image(m1,x,y,w,h);
   if (dmg == true) {
     int(health -1);
   }
