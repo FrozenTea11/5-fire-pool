@@ -9,9 +9,13 @@ void draw() {
     Machine m = machines.get(i);
     m.display();
     m.move();
-    machines.add(new Machine(20,20));
   }
 }
+
+void mousePressed() {
+  machines.add(new Machine(mouseX, mouseY));
+}
+
 
 MACHINE CLASS (OTHER TAB)
 
