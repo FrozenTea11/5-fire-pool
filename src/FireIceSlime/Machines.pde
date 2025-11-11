@@ -22,6 +22,7 @@ MACHINE CLASS (OTHER TAB)
 class Machine {
   // Member Variables
   int x, y, w, h, speed, health;
+  boolean dmg;
 
   // Constructor
   Machine(int x, int y) {
@@ -30,6 +31,8 @@ class Machine {
     w = 15;
     h = 30;
     speed = 5;
+    health = 5;
+    dmg = false;
   }
 
   // Member Methods
@@ -40,9 +43,9 @@ class Machine {
   }
 
   void move() {
-    x++;
-    if (x>width) {
-      x = 0;
+    y++;
+    if (y>height) {
+      y = 0;
     }
   }
 }
