@@ -17,7 +17,7 @@ void mousePressed() {
 }
 
 
-MACHINE CLASS (OTHER TAB)
+// MACHINE CLASS (OTHER TAB)
 
 class Machine {
   // Member Variables
