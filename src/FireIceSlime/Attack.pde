@@ -16,7 +16,7 @@ class Attack {
 
   // Member Methods
   void display() {
-    fill(0, 255, 0);
+    fill(#D6FFFA);
     rect(x, y, w, h);
   }
 
