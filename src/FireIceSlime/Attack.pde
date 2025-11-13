@@ -1,27 +1,35 @@
 class Attack {
-  // Member Variables
   int x, y, w, h, speed;
+  String dir; 
 
-
-  // Constructor
-  Attack(int x, int y) {
+  Attack(int x, int y, String dir) {
     this.x = x;
     this.y = y;
+    this.dir = dir;
     w = 30;
     h = 3;
-    speed = int(5);
+    speed = 5;
   }
 
-
-
-  // Member Methods
   void display() {
     fill(#D6FFFA);
     rect(x, y, w, h);
   }
 
   void move() {
-    x+= speed;
+    if (dir.equals("right")) {
+      x += speed;
+    } else if (dir.equals("left")) {
+      x -= speed;
+    } else if (dir.equals("up")) {
+      h = 30;
+      w = 3;
+      y -= speed;
+    } else if (dir.equals("down")) {
+      h = 30;
+      w = 3;
+      y += speed;
+    }
   }
 }
 
