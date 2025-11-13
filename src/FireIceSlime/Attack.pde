@@ -6,8 +6,8 @@ class Attack {
     this.x = x;
     this.y = y;
     this.dir = dir;
-    w = 30;
-    h = 3;
+    w = 40;
+    h = 4;
     speed = 5;
   }
 
@@ -22,12 +22,12 @@ class Attack {
     } else if (dir.equals("left")) {
       x -= speed;
     } else if (dir.equals("up")) {
-      h = 30;
-      w = 3;
+      h = 40;
+      w = 4;
       y -= speed;
     } else if (dir.equals("down")) {
-      h = 30;
-      w = 3;
+      h = 40;
+      w = 4;
       y += speed;
     }
   }
