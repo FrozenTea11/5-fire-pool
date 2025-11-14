@@ -1,3 +1,4 @@
+ArrayList<Machine> machines = new ArrayList<Machine>();
 
 class Machine {
   // Member Variables
@@ -5,12 +6,12 @@ class Machine {
   boolean dmg;
 
   // Constructor
-  Machine(int x, int y) {
+  Machine(int x, int y, int health) {
     this.x = x;
     this.y = y;
     w = 15;
     h = 30;
-    speed = 5;
+    speed = int(random(3,5));
     health = 5;
     dmg = false;
   }
@@ -23,9 +24,9 @@ class Machine {
   }
 
   void move() {
-    y++;
-    if (y>height) {
-      y = 0;
+    x++;
+    if (x>height) {
+      x = 0;
     }
   }
 }
