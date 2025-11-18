@@ -1,18 +1,41 @@
 class Attack {
-  int x, y, w, h, speed;
-  String dir; 
+  float x, y, w, h, speed;
+  String dir;
 
-  Attack(int x, int y, String dir) {
-    this.x = x;
-    this.y = y;
-    this.dir = dir;
-    w = 40;
-    h = 4;
-    speed = 5;
+  Attack() {
+    int edge = int(random(4));
+    speed = 3;
+
+    if (edge == 0) {
+      x = random(width);
+      y = 0;
+      dir = "down";
+      w = 4;
+      h = 40;
+    } else if (edge == 1) {
+      x = width;
+      y = random(height);
+      dir = "left";
+      w = 40;
+      h = 4;
+    } else if (edge == 2) {
+      x = random(width);
+      y = height;
+      dir = "up";
+      w = 4;
+      h = 40;
+    } else { // left
+      x = 0;
+      y = random(height);
+      dir = "right";
+      w = 40;
+      h = 4;
+    }
   }
 
   void display() {
-    fill(#D6FFFA);
+    fill(#39FF14);
+    noStroke();
     rect(x, y, w, h);
   }
 
@@ -22,14 +45,9 @@ class Attack {
     } else if (dir.equals("left")) {
       x -= speed;
     } else if (dir.equals("up")) {
-      h = 40;
-      w = 4;
       y -= speed;
     } else if (dir.equals("down")) {
-      h = 40;
-      w = 4;
       y += speed;
     }
   }
 }
-
