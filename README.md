@@ -4,7 +4,7 @@
 
 **Pitch:** [One compelling sentence]
 
-![Class Diagram](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/SlimeUML.png)
+![Class Diagram](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/FireIceSlime2.0UML.png)
 ![UI Mockup](mockup.png)
 
 ![Timeline Planner](https://github.com/FrozenTea11/5-fire-pool/blob/main/images/GameTimeline.png)
