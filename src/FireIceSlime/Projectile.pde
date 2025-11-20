@@ -1,8 +1,8 @@
-class Attack {
+class Projectile {
   float x, y, w, h, speed;
   String dir;
 
-  Attack() {
+  Projectile() {
     int edge = int(random(4));
     speed = 8;
 
