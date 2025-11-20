@@ -1,17 +1,23 @@
 Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnCredits, btnSettings, btnQuit, btnAudio;
+Button btnStart, btnSettings, btnQuit, btnAudio,btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
 
 void setup() {
   size(1200, 750);
   smooth();
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
-  btnCredits    = new Button("Credits:", 110, 300, 160, 50);
+  btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
   btnSettings    = new Button("Settings", 430, 200, 160, 50);
   btnQuit    = new Button("Quit", 320, 300, 160, 50);
   btnAudio  = new Button("Audio", 220, 200, 160, 50);
+  btnLvl1    = new Button("Level 1", 360, 300, 160, 50);
+  btnLvl2    = new Button("Level 2", 600, 300, 160, 50);
+  btnLvl3    = new Button("Level 3", 360, 400, 160, 50);
+  btnLvl4    = new Button("Level 4", 600, 400, 160, 50);
+  btnLvl5    = new Button("Level 5", 360, 500, 160, 50);
+  btnLvl6    = new Button("Level 6", 600, 500, 160, 50);
 projectiles = new ArrayList<Projectile>();
 }
 
@@ -27,14 +33,11 @@ switch(screen) {
   case 's':
     drawStart();
     break;
-  case 'c':
-    drawCredits();
+  case 'm':
+    drawMenu();
     break;
   case 'S':
     drawSettings();
-    break;
-  case 'Q':
-    drawQuit();
     break;
   case 'a':
     drawAudio();
@@ -64,8 +67,8 @@ void mousePressed() {
   case 's':
     if (btnStart.clicked()) {
       screen = 'p';
-    } else if (btnCredits.clicked()) {
-      screen = 'c';
+    } else if (btnMenu.clicked()) {
+      screen = 'm';
     } else if (btnSettings.clicked()) {
       screen = 'S';
     } else if (btnQuit.clicked()) {
@@ -83,7 +86,7 @@ void drawStart() {
     textSize(32);
     text("START SCREEN", width/2, 50);
     btnStart.display();
-    btnCredits.display();
+    btnMenu.display();
     btnSettings.display();
     btnQuit.display();
     btnAudio.display();
