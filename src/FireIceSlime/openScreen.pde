@@ -82,7 +82,7 @@ void mousePressed() {
     textSize(32);
     text("CREDITS:", width/2, 50);
   }
-
+// William Watabe
   void drawSettings() {
     background(200, 150, 120);
     textSize(32);
