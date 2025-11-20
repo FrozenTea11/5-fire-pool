@@ -1,7 +1,7 @@
 Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnSettings, btnQuit, btnAudio,btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
+Button btnStart, btnSettings, btnQuit, btnAudio, btnMenu, btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
 
 void setup() {
   size(1200, 750);
@@ -59,7 +59,6 @@ switch(screen) {
       projectiles.remove(i);
     }
   }
-}
 }
 
 void mousePressed() {
