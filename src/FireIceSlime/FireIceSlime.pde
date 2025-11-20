@@ -1,11 +1,14 @@
 Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnSettings, btnQuit, btnAudio, btnMenu, btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
+Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio,btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
+Level level;
 
 void setup() {
   size(1200, 750);
   smooth();
+  level = new Level([Name of picture as a string]);
+  level.addPlatform(0, height-50, width, 50, [Name of picture as a string]);
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
   btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
@@ -22,13 +25,6 @@ projectiles = new ArrayList<Projectile>();
 }
 
 void draw() {
-  background(30, 30, 40);
-  slime.update();
-  // Shadow on ground
-  noStroke();
-  fill(0, 50);
-  ellipse(slime.x, slime.groundY + slime.radius * 0.8, slime.radius * 1.6, slime.radius * 0.5);
-  slime.display();
 switch(screen) {
   case 's':
     drawStart();
@@ -41,6 +37,9 @@ switch(screen) {
     break;
   case 'a':
     drawAudio();
+    break;
+  case 'p':
+    drawPlay();
     break;
   }
  // Randomly spawn new projectiles
@@ -60,6 +59,7 @@ switch(screen) {
     }
   }
 }
+
 
 void mousePressed() {
   switch(screen) {
@@ -115,8 +115,12 @@ void drawQuit() {
   }
 
 void drawPlay() {
-    background(255);
-    text("PLAY SCREEN (fill this in)", 200, 200);
+    level.sketch();
+    slime.display();
+    for (int i=0; i<level.platforms.size(); i++){
+      slime.findFloor(level.platforms.get(i));
+    }
+    slime.update();
   }
 
   void drawPause() {
