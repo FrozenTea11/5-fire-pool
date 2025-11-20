@@ -92,11 +92,18 @@ void drawStart() {
     btnAudio.display();
   }
 
-  void drawCredits() {
-    background(120, 200, 140);
-    textSize(32);
-    text("CREDITS:", width/2, 50);
-  }
+  void drawMenu() {
+  background(120, 200, 140);
+  textSize(32);
+  text("Choose Level", width/2, 50);
+  btnLvl1.display();
+  btnLvl2.display();
+  btnLvl3.display();
+  btnLvl4.display();
+  btnLvl5.display();
+  btnLvl6.display();
+  
+}
 
 void drawSettings() {
     background(200, 150, 120);
