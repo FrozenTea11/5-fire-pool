@@ -20,4 +20,4 @@
 - Max Elkin (@425676): Programmer, Level Layout
 - Liam Stoll (@BIKER-LIFE): Lead Programmer
 - William Watabe (@9641873): Programmer, Sound Design
-- Gabby Neff (@40944): Character Artist
+- Gabby Neff (@409444-waspstorm): Character Artist
