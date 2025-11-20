@@ -2,7 +2,7 @@
 // GLOBALS
 // -------------------------------------------
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnCredits, btnSettings, btnQuit, btnStats;
+Button btnStart, btnCredits, btnSettings, btnQuit, btnAudio;
 
 // -------------------------------------------
 void setup() {
@@ -13,7 +13,7 @@ void setup() {
   btnCredits    = new Button("Credits:", 110, 300, 160, 50);
   btnSettings    = new Button("Settings", 430, 200, 160, 50);
   btnQuit    = new Button("Quit", 320, 300, 160, 50);
-  btnStats  = new Button("stats", 220, 200, 160, 50);
+  btnAudio  = new Button("Audio", 220, 200, 160, 50);
 }
 // -------------------------------------------
 void draw() {
@@ -32,7 +32,7 @@ void draw() {
     drawQuit();
     break;
   case 'a':
-    drawStats();
+    drawAudio();
     break;
   }
 
@@ -56,7 +56,7 @@ void mousePressed() {
       screen = 'S';
     } else if (btnQuit.clicked()) {
       screen = 'Q';
-    } else if (btnStats.clicked()) {
+    } else if (btnAudio.clicked()) {
       screen = 'a';
     }
     break;
@@ -74,7 +74,7 @@ void mousePressed() {
     btnCredits.display();
     btnSettings.display();
     btnQuit.display();
-    btnStats.display();
+    btnAudio.display();
   }
 
   void drawCredits() {
@@ -82,7 +82,7 @@ void mousePressed() {
     textSize(32);
     text("CREDITS:", width/2, 50);
   }
-// William Watabe
+
   void drawSettings() {
     background(200, 150, 120);
     textSize(32);
@@ -111,7 +111,7 @@ void mousePressed() {
     text("GAME OVER SCREEN (fill this in)", 200, 200);
   }
 
-  void drawStats() {
+  void drawAudio() {
     background(255);
-    text("STATS SCREEN (fill this in)", 200, 200);
+    text("AUDIO SCREEN (fill this in)", 200, 200);
   }
