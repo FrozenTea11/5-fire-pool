@@ -1,28 +1,29 @@
-
-// ---------------- SLIME CLASS ----------------
 class Slime {
   float x, y;
+  float speed;
   float vx, vy;
-  float radius = 60;
+  float radius = 40;
   boolean left, right;
-  boolean onGround = true;
+  boolean onGround = false;
   float gravity = 0.35;
-  float jumpPower = -9;
+  float jumpPower = -12;
   float groundY;
   // Blinking
   boolean isBlinking = false;
   int blinkTimer = 0;
   int nextBlinkFrame = 0;
   int blinkDuration = 6;
-  
+  boolean canMove = true;
+
   // Colors for the gradient
   color redColor = color(255, 0, 0);
   color blueColor = color(0, 0, 255);
 
-  Slime(float startX, float startY) {
-    x = startX;
-    groundY = startY;
-    y = groundY;
+  Slime(float startX, float startY, float speed) {
+    this.x = startX;
+    this.groundY = startY;
+    this.y = groundY;
+    this.speed = speed;
     scheduleNextBlink();
   }
 
@@ -45,21 +46,19 @@ class Slime {
   }
 
   void update() {
-    float speed = 3;
     vx = 0;
-    if (left) vx -= speed;
-    if (right) vx += speed;
+    if (left && canMove) vx -= speed;
+    if (right && canMove) vx += speed;
     x += vx;
-
-    if (!onGround) {
-      vy += gravity;
-      y += vy;
-      if (y >= groundY) {
-        y = groundY;
-        vy = 0;
-        onGround = true;
-      }
+    vy += gravity;
+    y += vy;
+    if (y >= groundY-radius) {
+      y = groundY-radius;
+      vy = 0;
+      onGround = true;
+      canMove = true;
     }
+
 
     if (x < radius) x = radius;
     if (x > width - radius) x = width - radius;
@@ -88,6 +87,8 @@ class Slime {
 
   // ------------- Drawing -------------
   void display() {
+    //Shadow
+    ellipse(x, groundY, radius * 1.6, radius * 0.5);
     float bounceOffset = 0;
     if (!onGround || vx != 0) {
       float bounceAmp = 5 * 0.25;
@@ -105,14 +106,14 @@ class Slime {
     noStroke();
 
     for (int i = 0; i < bodyW; i++) {
-        float lerpAmt = map(i, 0, bodyW, 0, 1);
-        color gradientColor = lerpColor(redColor, blueColor, lerpAmt);
-        stroke(gradientColor);
-        float halfLineH = bodyH / 2 * sqrt(1 - pow(map(i, 0, bodyW, -1, 1), 2));
-        line(-bodyW/2 + i, -halfLineH, -bodyW/2 + i, halfLineH);
+      float lerpAmt = map(i, 0, bodyW, 0, 1);
+      color gradientColor = lerpColor(redColor, blueColor, lerpAmt);
+      stroke(gradientColor);
+      float halfLineH = bodyH / 2 * sqrt(1 - pow(map(i, 0, bodyW, -1, 1), 2));
+      line(-bodyW/2 + i, -halfLineH, -bodyW/2 + i, halfLineH);
     }
-    
-    noStroke(); 
+
+    noStroke();
 
     drawFace();
     popMatrix();
@@ -123,18 +124,29 @@ class Slime {
     float eyeOffsetY = -radius * 0.15;
     float eyeW = radius * 0.35;
     float eyeH = radius * 0.40;
-    
+
     fill(255);
     stroke(0);
     strokeWeight(3);
 
     if (isBlinking) {
-        float y = eyeOffsetY;
-        line(-eyeOffsetX - eyeW*0.3, y, -eyeOffsetX + eyeW*0.3, y);
-        line( eyeOffsetX - eyeW*0.3, y, eyeOffsetX + eyeW*0.3, y);
+      float y = eyeOffsetY;
+      line(-eyeOffsetX - eyeW*0.3, y, -eyeOffsetX + eyeW*0.3, y);
+      line( eyeOffsetX - eyeW*0.3, y, eyeOffsetX + eyeW*0.3, y);
     } else {
-        ellipse(-eyeOffsetX, eyeOffsetY, eyeW, eyeH);
-        ellipse( eyeOffsetX, eyeOffsetY, eyeW, eyeH);
+      ellipse(-eyeOffsetX, eyeOffsetY, eyeW, eyeH);
+      ellipse( eyeOffsetX, eyeOffsetY, eyeW, eyeH);
+    }
+  }
+  // Collision detection
+  void findFloor(Platform p) {
+    if (x+radius > p.x && x < p.x+p.w) {
+      if (y <= p.y) {
+        groundY = p.y+p.h/2;
+      } else if (y <= p.y+radius*2) {
+        vy=jumpPower/2;
+        canMove = false;
+      }
     }
   }
 }
