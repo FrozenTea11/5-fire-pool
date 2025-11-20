@@ -40,6 +40,36 @@ switch(screen) {
   }
 }
 
+void mousePressed() {
+  switch(screen) {
+  case 's':
+    if (btnStart.clicked()) {
+      screen = 'p';
+    } else if (btnCredits.clicked()) {
+      screen = 'c';
+    } else if (btnSettings.clicked()) {
+      screen = 'S';
+    } else if (btnQuit.clicked()) {
+      screen = 'Q';
+    } else if (btnStats.clicked()) {
+      screen = 'a';
+    }
+    break;
+  }
+}
+
+void drawStart() {
+    background(100, 160, 200);
+    textAlign(CENTER);
+    textSize(32);
+    text("START SCREEN", width/2, 50);
+    btnStart.display();
+    btnCredits.display();
+    btnSettings.display();
+    btnQuit.display();
+    btnStats.display();
+  }
+
 void keyPressed() {
   slime.handleKeyPressed();
 }
