@@ -1,6 +1,6 @@
 Slime slime;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnCredits, btnSettings, btnQuit, btnStats;
+Button btnStart, btnCredits, btnSettings, btnQuit, btnAudio;
 
 void setup() {
   size(1200, 750);
@@ -10,7 +10,7 @@ void setup() {
   btnCredits    = new Button("Credits:", 110, 300, 160, 50);
   btnSettings    = new Button("Settings", 430, 200, 160, 50);
   btnQuit    = new Button("Quit", 320, 300, 160, 50);
-  btnStats  = new Button("stats", 220, 200, 160, 50);
+  btnAudio  = new Button("Audio", 220, 200, 160, 50);
 }
 
 void draw() {
@@ -35,7 +35,7 @@ switch(screen) {
     drawQuit();
     break;
   case 'a':
-    drawStats();
+    drawAudio();
     break;
   }
 }
@@ -51,7 +51,7 @@ void mousePressed() {
       screen = 'S';
     } else if (btnQuit.clicked()) {
       screen = 'Q';
-    } else if (btnStats.clicked()) {
+    } else if (btnAudio.clicked()) {
       screen = 'a';
     }
     break;
@@ -67,7 +67,7 @@ void drawStart() {
     btnCredits.display();
     btnSettings.display();
     btnQuit.display();
-    btnStats.display();
+    btnAudio.display();
   }
 
 void keyPressed() {
