@@ -1,6 +1,6 @@
 class Slime {
   float x, y;
-  float speed;
+  float speed = 7;
   float vx, vy;
   float radius = 40;
   boolean left, right;
@@ -19,7 +19,7 @@ class Slime {
   color redColor = color(255, 0, 0);
   color blueColor = color(0, 0, 255);
 
-  Slime(float startX, float startY, float speed) {
+  Slime(float startX, float startY) {
     this.x = startX;
     this.groundY = startY;
     this.y = groundY;
