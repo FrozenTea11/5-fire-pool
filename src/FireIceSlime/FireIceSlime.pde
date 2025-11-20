@@ -1,4 +1,5 @@
 Slime slime;
+ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnStart, btnCredits, btnSettings, btnQuit, btnAudio;
 
@@ -11,6 +12,7 @@ void setup() {
   btnSettings    = new Button("Settings", 430, 200, 160, 50);
   btnQuit    = new Button("Quit", 320, 300, 160, 50);
   btnAudio  = new Button("Audio", 220, 200, 160, 50);
+projectiles = new ArrayList<Projectile>();
 }
 
 void draw() {
@@ -38,6 +40,23 @@ switch(screen) {
     drawAudio();
     break;
   }
+ // Randomly spawn new projectiles
+  if (frameCount % 40 == 0) { // adjust frequency
+    projectiles.add(new Projectile());
+  }
+
+  // Update and display all projectiles
+  for (int i = projectiles.size() - 1; i >= 0; i--) {
+    Projectile p = projectiles.get(i);
+    p.move();
+    p.display();
+
+    // Remove projectiles if they go off screen
+    if (p.x < -50 || p.x > width + 50 || p.y < -50 || p.y > height + 50) {
+      projectiles.remove(i);
+    }
+  }
+}
 }
 
 void mousePressed() {
