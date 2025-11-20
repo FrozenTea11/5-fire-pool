@@ -150,15 +150,3 @@ class Slime {
     }
   }
 }
-void drawPlay() {
-  level.sketch();
-  // Shadow on ground
-  noStroke();
-  fill(0, 50);
-  slime.groundY=width+slime.radius;
-  for (int i=0; i<level.platforms.size(); i++){
-    slime.findFloor(level.platforms.get(i));
-  }
-  slime.display();
-  slime.update();
-}
