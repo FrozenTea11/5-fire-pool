@@ -1,28 +1,3 @@
-Slime slime;
-
-void setup() {
-  size(800, 600);
-  smooth();
-  slime = new Slime(width/2, height/2);
-}
-
-void draw() {
-  background(30, 30, 40);
-  slime.update();
-  // Shadow on ground
-  noStroke();
-  fill(0, 50);
-  ellipse(slime.x, slime.groundY + slime.radius * 0.8, slime.radius * 1.6, slime.radius * 0.5);
-  slime.display();
-}
-
-void keyPressed() {
-  slime.handleKeyPressed();
-}
-
-void keyReleased() {
-  slime.handleKeyReleased();
-}
 
 // ---------------- SLIME CLASS ----------------
 class Slime {
