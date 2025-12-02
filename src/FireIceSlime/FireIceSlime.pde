@@ -1,3 +1,4 @@
+//Liam Stoll, Max Elkin, Will Wateabe, Lucas Wu, Gabby Neff
 Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
