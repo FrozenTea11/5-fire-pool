@@ -1,3 +1,4 @@
+//Gabby Neff: base code, Liam Stoll: Fine tuning & functionality
 class Slime {
   float x, y;
   float speed = 7;
