@@ -2,7 +2,7 @@
 class Projectile {
   float x, y, w, h, speed;
   String dir;
-
+// Spawning a projectile from a random edge
   Projectile() {
     int edge = int(random(4));
     speed = 8;
@@ -39,7 +39,7 @@ class Projectile {
     noStroke();
     rect(x, y, w, h);
   }
-
+// Projectile movement
   void move() {
     if (dir.equals("right")) {
       x += speed;
