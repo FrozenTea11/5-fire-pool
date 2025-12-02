@@ -21,3 +21,10 @@
 - Liam Stoll (@BIKER-LIFE): Lead Programmer
 - William Watabe (@9641873): Programmer, Sound Design
 - Gabby Neff (@409444-waspstorm): Character Artist
+
+
+
+## To Do List
+-add background art
+- add level selection work
+- add music
