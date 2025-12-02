@@ -149,4 +149,7 @@ class Slime {
       }
     }
   }
+  boolean projectileCollision(Projectile p){
+    return x+radius>=p.x && x-radius<=p.x+p.w && y+radius>=p.y && y-radius<=p.y+p.h;
+  }
 }
