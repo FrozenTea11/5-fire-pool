@@ -1,14 +1,14 @@
 Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
-Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio,btnLvl1,btnLvl2,btnLvl3,btnLvl4,btnLvl5,btnLvl6;
+Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio, btnLvl1, btnLvl2, btnLvl3, btnLvl4, btnLvl5, btnLvl6;
 Level level;
 
 void setup() {
   size(1200, 750);
   smooth();
-  level = new Level([Name of picture as a string]);
-  level.addPlatform(0, height-50, width, 50, [Name of picture as a string]);
+  level = new Level([Name of background]);
+  level.addPlatform(0, height-50, width, 50, [Name of image]);
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
   btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
@@ -21,11 +21,11 @@ void setup() {
   btnLvl4    = new Button("Level 4", 600, 400, 160, 50);
   btnLvl5    = new Button("Level 5", 360, 500, 160, 50);
   btnLvl6    = new Button("Level 6", 600, 500, 160, 50);
-projectiles = new ArrayList<Projectile>();
+  projectiles = new ArrayList<Projectile>();
 }
 
 void draw() {
-switch(screen) {
+  switch(screen) {
   case 's':
     drawStart();
     break;
@@ -42,7 +42,7 @@ switch(screen) {
     drawPlay();
     break;
   }
- // Randomly spawn new projectiles
+  // Randomly spawn new projectiles
   if (frameCount % 40 == 0) { // adjust frequency
     projectiles.add(new Projectile());
   }
@@ -80,20 +80,22 @@ void mousePressed() {
 }
 
 void drawStart() {
-    background(100, 160, 200);
-    textAlign(CENTER);
-    textSize(32);
-    text("START SCREEN", width/2, 50);
-    btnStart.display();
-    btnMenu.display();
-    btnSettings.display();
-    btnQuit.display();
-    btnAudio.display();
-  }
+  background(100, 160, 200);
+  textAlign(CENTER);
+  textSize(32);
+  fill(0);
+  text("START SCREEN", width/2, 50);
+  btnStart.display();
+  btnMenu.display();
+  btnSettings.display();
+  btnQuit.display();
+  btnAudio.display();
+}
 
-  void drawMenu() {
+void drawMenu() {
   background(120, 200, 140);
   textSize(32);
+  fill(0);
   text("Choose Level", width/2, 50);
   btnLvl1.display();
   btnLvl2.display();
@@ -101,42 +103,46 @@ void drawStart() {
   btnLvl4.display();
   btnLvl5.display();
   btnLvl6.display();
-  
 }
 
 void drawSettings() {
-    background(200, 150, 120);
-    textSize(32);
-    text("SETTINGS", width/2, 50);
-  }
+  background(200, 150, 120);
+  textSize(32);
+  text("SETTINGS", width/2, 50);
+}
 
 void drawQuit() {
-    exit();
-  }
+  exit();
+}
 
 void drawPlay() {
-    level.sketch();
-    slime.display();
-    for (int i=0; i<level.platforms.size(); i++){
-      slime.findFloor(level.platforms.get(i));
+  level.sketch();
+  slime.display();
+  for (int i=0; i<level.platforms.size(); i++) {
+    slime.findFloor(level.platforms.get(i));
+  }
+  for (int i=0; i<projectiles.size(); i++){
+    if(slime.projectileCollision(projectiles.get(i))){
+      rect(20, 20, 200, 100);
     }
-    slime.update();
   }
+  slime.update();
+}
 
-  void drawPause() {
-    background(255);
-    text("PAUSE SCREEN (fill this in)", 200, 200);
-  }
+void drawPause() {
+  background(255);
+  text("PAUSE SCREEN (fill this in)", 200, 200);
+}
 
-  void drawGameOver() {
-    background(255);
-    text("GAME OVER SCREEN (fill this in)", 200, 200);
-  }
+void drawGameOver() {
+  background(255);
+  text("GAME OVER SCREEN (fill this in)", 200, 200);
+}
 
-  void drawAudio() {
-    background(255);
-    text("AUDIO SCREEN (fill this in)", 200, 200);
-  }
+void drawAudio() {
+  background(255);
+  text("AUDIO SCREEN (fill this in)", 200, 200);
+}
 
 void keyPressed() {
   slime.handleKeyPressed();
