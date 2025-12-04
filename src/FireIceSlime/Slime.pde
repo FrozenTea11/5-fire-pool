@@ -24,7 +24,6 @@ class Slime {
     this.x = startX;
     this.groundY = startY;
     this.y = groundY;
-    this.speed = speed;
     scheduleNextBlink();
   }
 
@@ -89,6 +88,7 @@ class Slime {
   // ------------- Drawing -------------
   void display() {
     //Shadow
+    fill(0,0,0,120);
     ellipse(x, groundY, radius * 1.6, radius * 0.5);
     float bounceOffset = 0;
     if (!onGround || vx != 0) {
