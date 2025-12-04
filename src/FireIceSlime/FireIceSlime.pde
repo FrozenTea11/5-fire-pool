@@ -3,7 +3,10 @@ Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio, btnLvl1, btnLvl2, btnLvl3, btnLvl4, btnLvl5, btnLvl6;
+ Button btnBrightUp, btnBrightDown;
 Level level;
+
+  float brightnessValue = 255;
 
 void setup() {
   size(1200, 750);
@@ -22,6 +25,9 @@ void setup() {
   btnLvl4    = new Button("Level 4", 600, 400, 160, 50);
   btnLvl5    = new Button("Level 5", 360, 500, 160, 50);
   btnLvl6    = new Button("Level 6", 600, 500, 160, 50);
+   btnBrightUp   = new Button("+ Bright", width/2 -20, 350, 160, 50);
+   btnBrightDown = new Button("- Bright", width/2-200+ 20, 350, 160, 50);
+    
   projectiles = new ArrayList<Projectile>();
 }
 
@@ -33,9 +39,9 @@ void draw() {
   case 'm':
     drawMenu();
     break;
-  case 'S':
+     case 'S':
     drawSettings();
-    break;
+        break;
   case 'a':
     drawAudio();
     break;
@@ -62,6 +68,9 @@ void draw() {
       projectiles.remove(i);
     }
   }
+    noStroke();
+    fill(0, 0, 0, 255 - brightnessValue);
+    rect(0, 0, width, height);
 }
 
 
@@ -80,6 +89,16 @@ void mousePressed() {
       screen = 'a';
     }
     break;
+      case 'S':
+        if (btnBrightUp.clicked()) {
+          brightnessValue += 25;
+          brightnessValue = constrain(brightnessValue, 0, 255);
+        }
+        if (btnBrightDown.clicked()) {
+          brightnessValue -= 25;
+          brightnessValue = constrain(brightnessValue, 0, 255);
+        }
+        break;
   }
 }
 
@@ -109,11 +128,19 @@ void drawMenu() {
   btnLvl6.display();
 }
 
-void drawSettings() {
-  background(200, 150, 120);
-  textSize(32);
-  text("SETTINGS", width/2, 50);
-}
+ void drawSettings() {
+    background(200, 150, 120);
+    textAlign(CENTER);
+    textSize(32);
+    text("SETTINGS", width/2, 100);
+  
+    fill(0);
+    textSize(22);
+    text("Brightness: " + int(brightnessValue), width/2, 250);
+  
+    btnBrightUp.display();
+    btnBrightDown.display();
+  }
 
 void drawGameOver() {
   exit(); //Replace with game over code
