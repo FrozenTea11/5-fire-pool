@@ -158,6 +158,8 @@ void drawPlay() {
     }
   }
   slime.update();
+  fill(0);
+  text(millis()/1000,50,100);
 }
 
 void drawPause() {
