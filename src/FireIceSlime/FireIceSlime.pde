@@ -3,10 +3,10 @@ Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio, btnLvl1, btnLvl2, btnLvl3, btnLvl4, btnLvl5, btnLvl6;
- Button btnBrightUp, btnBrightDown;
+ Button btnBrightUp, btnBrightDown; //William Watabe
 Level level;
 
-  float brightnessValue = 255;
+  float brightnessValue = 255; // William Watabe
 
 void setup() {
   size(1200, 750);
@@ -25,8 +25,8 @@ void setup() {
   btnLvl4    = new Button("Level 4", 600, 400, 160, 50);
   btnLvl5    = new Button("Level 5", 360, 500, 160, 50);
   btnLvl6    = new Button("Level 6", 600, 500, 160, 50);
-   btnBrightUp   = new Button("+ Bright", width/2 -20, 350, 160, 50);
-   btnBrightDown = new Button("- Bright", width/2-200+ 20, 350, 160, 50);
+   btnBrightUp   = new Button("+ Bright", width/2 -20, 350, 160, 50); // William Watabe
+   btnBrightDown = new Button("- Bright", width/2-200+ 20, 350, 160, 50); // William Watabe
     
   projectiles = new ArrayList<Projectile>();
 }
@@ -54,10 +54,10 @@ void draw() {
   }
   // Randomly spawn new projectiles
   if (frameCount % 40 == 0) { // adjust frequency
-    projectiles.add(new Projectile());
+    projectiles.add(new Projectile()); // William Watabe
   }
 
-  // Update and display all projectiles
+  // Update and display all projectiles // William Watabe
   for (int i = projectiles.size() - 1; i >= 0; i--) {
     Projectile p = projectiles.get(i);
     p.move();
@@ -68,7 +68,7 @@ void draw() {
       projectiles.remove(i);
     }
   }
-    noStroke();
+    noStroke(); // William Watabe
     fill(0, 0, 0, 255 - brightnessValue);
     rect(0, 0, width, height);
 }
@@ -89,7 +89,7 @@ void mousePressed() {
       screen = 'a';
     }
     break;
-      case 'S':
+      case 'S': // William Watabe
         if (btnBrightUp.clicked()) {
           brightnessValue += 25;
           brightnessValue = constrain(brightnessValue, 0, 255);
@@ -128,7 +128,7 @@ void drawMenu() {
   btnLvl6.display();
 }
 
- void drawSettings() {
+ void drawSettings() { // William Watabe
     background(200, 150, 120);
     textAlign(CENTER);
     textSize(32);
