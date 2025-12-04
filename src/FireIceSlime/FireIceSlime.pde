@@ -8,8 +8,8 @@ Level level;
 void setup() {
   size(1200, 750);
   smooth();
-  level = new Level([Name of background]);
-  level.addPlatform(0, height-50, width, 50, [Name of image]);
+  level = new Level("land.jpeg");
+  level.addPlatform(0, height-50, width, 50, "ground.png");
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
   btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
@@ -42,6 +42,9 @@ void draw() {
   case 'p':
     drawPlay();
     break;
+  case 'g':
+    drawGameOver();
+    break;
   }
   // Randomly spawn new projectiles
   if (frameCount % 40 == 0) { // adjust frequency
@@ -72,7 +75,7 @@ void mousePressed() {
     } else if (btnSettings.clicked()) {
       screen = 'S';
     } else if (btnQuit.clicked()) {
-      screen = 'Q';
+      exit();
     } else if (btnAudio.clicked()) {
       screen = 'a';
     }
@@ -112,8 +115,8 @@ void drawSettings() {
   text("SETTINGS", width/2, 50);
 }
 
-void drawQuit() {
-  exit();
+void drawGameOver() {
+  exit(); //Replace with game over code
 }
 
 void drawPlay() {
@@ -124,7 +127,7 @@ void drawPlay() {
   }
   for (int i=0; i<projectiles.size(); i++){
     if(slime.projectileCollision(projectiles.get(i))){
-      rect(20, 20, 200, 100);
+      screen = 'g';
     }
   }
   slime.update();
@@ -133,11 +136,6 @@ void drawPlay() {
 void drawPause() {
   background(255);
   text("PAUSE SCREEN (fill this in)", 200, 200);
-}
-
-void drawGameOver() {
-  background(255);
-  text("GAME OVER SCREEN (fill this in)", 200, 200);
 }
 
 void drawAudio() {
