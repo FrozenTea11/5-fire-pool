@@ -3,10 +3,10 @@ Slime slime;
 ArrayList<Projectile> projectiles;
 char screen = 's';   // s = start, m = menu, t = settings, p = play, u = pause, g = game over, a = app stats
 Button btnStart, btnMenu, btnSettings, btnQuit, btnAudio, btnLvl1, btnLvl2, btnLvl3, btnLvl4, btnLvl5, btnLvl6;
- Button btnBrightUp, btnBrightDown; //William Watabe
+// Button btnBrightUp, btnBrightDown; //William Watabe
 Level level;
 
-  float brightnessValue = 255; // William Watabe
+// float brightnessValue = 255; // William Watabe
 
 void setup() {
   size(1200, 750);
@@ -25,8 +25,8 @@ void setup() {
   btnLvl4    = new Button("Level 4", 600, 400, 160, 50);
   btnLvl5    = new Button("Level 5", 360, 500, 160, 50);
   btnLvl6    = new Button("Level 6", 600, 500, 160, 50);
-   btnBrightUp   = new Button("+ Bright", width/2 -20, 350, 160, 50); // William Watabe
-   btnBrightDown = new Button("- Bright", width/2-200+ 20, 350, 160, 50); // William Watabe
+  // btnBrightUp   = new Button("+ Bright", width/2 -20, 350, 160, 50); // William Watabe
+  // btnBrightDown = new Button("- Bright", width/2-200+ 20, 350, 160, 50); // William Watabe
     
   projectiles = new ArrayList<Projectile>();
 }
@@ -68,9 +68,9 @@ void draw() {
       projectiles.remove(i);
     }
   }
-    noStroke(); // William Watabe
-    fill(0, 0, 0, 255 - brightnessValue);
-    rect(0, 0, width, height);
+   // noStroke(); // William Watabe
+    // fill(0, 0, 0, 255 - brightnessValue);
+    // rect(0, 0, width, height);
 }
 
 
@@ -89,16 +89,16 @@ void mousePressed() {
       screen = 'a';
     }
     break;
-      case 'S': // William Watabe
-        if (btnBrightUp.clicked()) {
-          brightnessValue += 25;
-          brightnessValue = constrain(brightnessValue, 0, 255);
-        }
-        if (btnBrightDown.clicked()) {
-          brightnessValue -= 25;
-          brightnessValue = constrain(brightnessValue, 0, 255);
-        }
-        break;
+      // case 'S': // William Watabe
+        // if (btnBrightUp.clicked()) {
+          // brightnessValue += 25;
+          // brightnessValue = constrain(brightnessValue, 0, 255);
+        // }
+        // if (btnBrightDown.clicked()) {
+          // brightnessValue -= 25;
+          // brightnessValue = constrain(brightnessValue, 0, 255);
+        // }
+        // break;
   }
 }
 
@@ -134,12 +134,12 @@ void drawMenu() {
     textSize(32);
     text("SETTINGS", width/2, 100);
   
-    fill(0);
-    textSize(22);
-    text("Brightness: " + int(brightnessValue), width/2, 250);
+    // fill(0);
+    // textSize(22);
+    // text("Brightness: " + int(brightnessValue), width/2, 250);
   
-    btnBrightUp.display();
-    btnBrightDown.display();
+    // btnBrightUp.display();
+    // btnBrightDown.display();
   }
 
 void drawGameOver() {
