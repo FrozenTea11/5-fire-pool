@@ -1,4 +1,4 @@
-//Gabby Neff: base code, Max Elkin: WAD, Liam Stoll: Fine tuning & functionality
+//Gabby Neff: base code, Liam Stoll: Fine tuning & functionality
 class Slime {
   float x, y;
   float speed = 7;
@@ -36,6 +36,7 @@ class Slime {
         onGround = false;
       }
     }
+// Max Elkin: WAD Key press
     if (key == 'a') left = true;
     if (key == 'd') right = true;
     if (key == 'w' && onGround) {
