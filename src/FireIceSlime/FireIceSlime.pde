@@ -11,8 +11,8 @@ Level level;
 void setup() {
   size(1200, 750);
   smooth();
-  level = new Level("placeholder.png");
-  level.addPlatform(0, height-50, width, 50, "ground.png");
+  level = new Level("Dog.png");
+  level.addPlatform(0, height-50, width, 50, "Dog.png");
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
   btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
@@ -158,8 +158,11 @@ void drawPlay() {
     }
   }
   slime.update();
-  fill(0);
-  text(millis()/1000,50,100);
+  fill(125);
+  rect(50,50,100,100,20);
+  fill(255);
+  textSize(50);
+  text(millis()/1000,100,100);
 }
 
 void drawPause() {
