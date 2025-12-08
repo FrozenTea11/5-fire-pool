@@ -1,4 +1,4 @@
-//Gabby Neff: base code,Max Elkin: WAD, Liam Stoll: Fine tuning & functionality
+//Gabby Neff: base code, Max Elkin: WAD, Liam Stoll: Fine tuning & functionality
 class Slime {
   float x, y;
   float speed = 7;
