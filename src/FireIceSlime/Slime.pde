@@ -1,4 +1,4 @@
-//Gabby Neff: base code, Liam Stoll: Fine tuning & functionality
+//Gabby Neff: base code,Max Elkin: WAD, Liam Stoll: Fine tuning & functionality
 class Slime {
   float x, y;
   float speed = 7;
@@ -36,6 +36,12 @@ class Slime {
         onGround = false;
       }
     }
+    if (key == 'a') left = true;
+    if (key == 'd') right = true;
+    if (key == 'w' && onGround) {
+      vy = jumpPower;
+      onGround = false;
+    }
   }
 
   void handleKeyReleased() {
@@ -43,6 +49,9 @@ class Slime {
       if (keyCode == LEFT) left = false;
       if (keyCode == RIGHT) right = false;
     }
+    
+    if (key == 'a') left = false;
+    if (key == 'd') right = false;
   }
 
   void update() {
