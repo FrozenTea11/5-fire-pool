@@ -35,7 +35,7 @@ class Projectile {
   }
 
   void display() {
-    fill(#39FF14);
+    fill(#FFA500);
     noStroke();
     rect(x, y, w, h);
   }
