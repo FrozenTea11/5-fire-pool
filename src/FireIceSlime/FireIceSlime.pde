@@ -11,8 +11,8 @@ Level level;
 void setup() {
   size(1200, 750);
   smooth();
-  level = new Level("placeholder.png");
-  level.addPlatform(0, height-50, width, 50, "placeholder.png.png");
+  level = new Level("Lava.png");
+  level.addPlatform(0, height-50, width, 50, "ground.png.png");
   slime = new Slime(width/2, height/2);
   btnStart    = new Button("Start", 10, 200, 160, 50);
   btnMenu    = new Button("Go to Menu", 70, 300, 160, 50);
