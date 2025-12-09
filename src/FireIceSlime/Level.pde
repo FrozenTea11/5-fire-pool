@@ -1,4 +1,4 @@
-//Liam Stoll 
+//Liam Stoll,Lucas Wu
 class Level {
   PImage img;
   ArrayList<Platform> platforms;
@@ -11,6 +11,8 @@ class Level {
 
   void addPlatform(int x, int y, int w, int h, String i){
     platforms.add(new Platform(x, y, w, h, i));
+    platforms.add(newPlatform(200,300,50,300));
+    platforms.add(newPlatform(600,500,50,300));
   }
   
   void sketch() {
