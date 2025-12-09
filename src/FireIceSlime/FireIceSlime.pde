@@ -162,7 +162,7 @@ void drawPlay() {
   rect(50,50,100,100,20);
   fill(255);
   textSize(50);
-  text(millis()/1000,100,100);
+  text(millis()/1000,100,90);
 }
 
 void drawPause() {
