@@ -1,4 +1,4 @@
-//Liam Stoll,Lucas Wu
+//Liam Stoll
 class Level {
   PImage img;
   ArrayList<Platform> platforms;
