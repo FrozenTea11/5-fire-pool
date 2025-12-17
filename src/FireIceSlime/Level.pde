@@ -11,8 +11,6 @@ class Level {
 
   void addPlatform(int x, int y, int w, int h, String i){
     platforms.add(new Platform(x, y, w, h, i));
-    platforms.add(new Platform(200,350,300,50,i));
-    platforms.add(new Platform(600,500,300,50,i));
   }
   
   void sketch() {
